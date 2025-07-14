@@ -6,9 +6,6 @@ namespace tdlog
 	template <typename... Args>
 	void log(loai_log loai, std::string_view tentep, std::string_view fmt, Args&&... args)
 	{
-		if (!g_enable_log)
-			return;
-
 		std::string      thongdiep = std::vformat(fmt, std::make_format_args(args...));
 		const char* fname = tentep.data();
 		const char* slash = std::max(strrchr(fname, '/'), strrchr(fname, '\\'));
@@ -30,5 +27,4 @@ namespace tdlog
 				break;
 		}
 	}
-
-} // namespace tdlog
+}
